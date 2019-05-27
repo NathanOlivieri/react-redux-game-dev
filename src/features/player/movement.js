@@ -9,6 +9,12 @@ export default function handleMove(player) {
                ? newPos : oldPos
     }
 
+    const observeObstacle = (oldPos, newPos) => {
+        const rockPos = store.getState().rock.position
+        return (newPos[0] === rockPos[0] && newPos[1] === rockPos[1] )
+        ? oldPos : newPos
+    }
+
     const getNewPosition = (direction) => {
         const oldPos = store.getState().player.position
         switch(direction){
@@ -55,7 +61,7 @@ export default function handleMove(player) {
         store.dispatch({
             type:'MOVE_PLAYER',
             payload: {
-                position: observeBoundaries(oldPos, getNewPosition(direction)),
+                position: observeBoundaries(oldPos, observeObstacle(oldPos, getNewPosition(direction))),
                 backgroundPosition: getNewSprite(direction),
                 currentDirection: direction
             }
