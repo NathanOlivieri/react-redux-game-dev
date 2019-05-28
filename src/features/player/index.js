@@ -14,8 +14,8 @@ function Player(props) {
                 backgroundPosition: `${props.backgroundPosition[1]}px ${props.backgroundPosition[0]}px`,
                 width: '40px',
                 height: '40px',
-                zIndex:1
-                // transition: '100ms'
+                zIndex:1,
+                transition: 'all 300ms, background-position 0ms'
             }}
         />
     )

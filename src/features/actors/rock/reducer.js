@@ -1,17 +1,12 @@
-import { SPRITE_SIZE } from '../../../config/const'
+import { RockTemp } from '../index'
 
+const newRock = new RockTemp(40,40, false)
 const initialState = {
-    position: [SPRITE_SIZE, SPRITE_SIZE],
-    size: {
-        width: SPRITE_SIZE,
-        height: SPRITE_SIZE
-    },
-    backgroundPosition: [0, 0],
-    isStatic: true,
-    background: '#BDC3C7'
+    rocks: [ newRock ]
 }
 
 const rockReducer = (state = initialState, action ) => {
+    console.log( newRock )
     switch(action.type){
         default : return state
     }

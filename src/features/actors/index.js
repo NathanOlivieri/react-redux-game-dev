@@ -1,6 +1,8 @@
 import { SPRITE_SIZE } from '../../config/const'
 
-export class Actor {
+
+//MAIN ACTOR CLASS ALL ACTORS EXTEND TO GET SIZE AND METHODS
+export class Actor {                            
     constructor(x, y, isStatic){
         this.size = {
             width: SPRITE_SIZE,
@@ -8,6 +10,7 @@ export class Actor {
         }
         this.position = [ y, x ]
         this.isStatic = isStatic
+        this.type = ''
         this.moveActor = () => {
             console.log('moved')
         }
@@ -15,10 +18,10 @@ export class Actor {
 }
 
 export class RockTemp extends Actor {
-    constructor(){
-        super();
-        this.isStatic = true
-        this.position = [SPRITE_SIZE, SPRITE_SIZE]
-        this.background = '#fafafa'
+    constructor(x, y, isStatic){
+        super(x, y, isStatic);
+        this.position = [ y, x ]
+        this.isStatic = isStatic        
+        this.background = '#BDC3C7'
     }
-}
+}//ad dispatch to store method???

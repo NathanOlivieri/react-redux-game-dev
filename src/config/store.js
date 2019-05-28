@@ -4,7 +4,7 @@ import rockReducer from '../features/actors/rock/reducer.js';
 
 const rootReducer = combineReducers({
     player: playerReducer,
-    rock: rockReducer
+    rock: rockReducer,
 })
 
 const store = createStore(

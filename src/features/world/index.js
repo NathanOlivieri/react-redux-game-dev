@@ -14,7 +14,23 @@ export default function world() {
         }}>
             <Player />
             <Map />
-            <Rock />
+            { generateRocks(10) }
         </div>
     )
+}
+
+const generateRocks = (amount) => {
+    let rockList = []
+    for(let i = 1; i <= amount; i++){
+        rockList.push(i)
+    }
+    let rockMap = rockList.map(item => (
+        <Rock position={[getRandomPos(), getRandomPos()]} key={item} />
+    ))
+    return rockMap
+}
+
+const getRandomPos = () => {
+    let newInt = parseInt(Math.random()*10) * 40
+    return newInt
 }

@@ -10,11 +10,16 @@ export default function handleMove(player) {
     }
 
     const observeObstacle = (oldPos, newPos) => {
-        const rockPos = store.getState().rock.position
-        return (newPos[0] === rockPos[0] && newPos[1] === rockPos[1] )
-        ? oldPos : newPos
+        const rocksPos = store.getState().rock.rocks
+        rocksPos.forEach(el => {
+            return (newPos[0] === el.position[0] && newPos[1] === el.position[1])
+            ? oldPos : newPos
+        });
+        // return (newPos[0] === rockPos[0] && newPos[1] === rockPos[1] )
+        // ? oldPos : newPos
     }
 
+    //state still doesnt know about 
     const getNewPosition = (direction) => {
         const oldPos = store.getState().player.position
         switch(direction){

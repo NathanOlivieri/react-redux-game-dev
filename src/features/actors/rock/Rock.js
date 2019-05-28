@@ -1,9 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { RockTemp } from '../../actors/index'
-
-
-// const rock = new RockTemp()
 
 function Rock(props) {
     console.log(props)
@@ -15,15 +11,16 @@ function Rock(props) {
                 left: `${props.position[0]}px`,
                 width: props.size.width,
                 height: props.size.height,
-                background: props.background
+                background: props.background,
                 // transition: '100ms'
             }}
         />
     )
 }
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
     return {
-        ...state.rock
+        ...state.rock.rocks[0],
+        ...ownProps
     }
 }
 
